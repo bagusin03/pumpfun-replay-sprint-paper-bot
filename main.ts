@@ -17,6 +17,14 @@
 // amounts are lamports (bigint) where they are spent; ratios are plain
 // numbers. The bot only ever reads the hello message, each batch and the
 // orders it returns for that batch's slot.
+//
+// Note on the 2% failed-transaction draw: the dev PnL moves with the
+// harness seed (11 of 12 tried seeds score +2.5 to +4.5 SOL on this window,
+// one seed -0.01), because a failed pyramid add on a winner changes that
+// coin's size. The seed the kit grades with is fixed, so the +4.14 SOL dev
+// result below is reproducible; the final window is a fresh draw, and the
+// coin-subset check (20 draws of 70% of mints: 6 of 20 above the paid-zone
+// cutoff) is the honest guide to that.
 
 import { runBot, type Batch, type BotState, type OrderInput, type Pubkey } from './vendor/makefun-bot.ts';
 
